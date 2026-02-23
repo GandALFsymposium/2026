@@ -11,11 +11,167 @@
 # -----------------
 en: &DEFAULT_EN
   header:
-    title: Welcome to our Studio!
-    text: It's Nice To Meet You
-    button: Tell Me More
-    buttonlink: "#services"
+    title: GandALF 2026
+    text: Seventeenth International Symposium on Games, Automata, Logics, and Formal Verification
+    date: September 15-17, 2026
+    location: Aalborg, Denmark
+    button: "" #Register
+    buttonlink: "#registration"
 
+  about:
+    title: "About GandALF"
+    scope: "The aim of GandALF is to bring together researchers from academia and industry 
+    who are actively working in the fields of Games, Automata, Logics, and Formal 
+    Verification. The idea is to cover an ample spectrum of themes, from theory to 
+    applications, and stimulate cross-fertilization. Papers focused on formal methods 
+    are especially welcome. Authors are invited to submit original research or tool 
+    papers on all relevant topics in these areas. Papers discussing new ideas that are 
+    at an early stage of development are also welcome."
+    local_info: "GandALF 2026 will take place in Aalborg, Denmark, on September 15--17, 2026.
+    <br>
+    The conference will be hosted by [Aalborg University](https://www.aau.dk) and 
+    it is organised by the [FICS](https://www.cs.aau.dk/research/research-groups/foundations-for-interacting-and-computing-systems-fics) 
+    reaserch group at the [Department of Computer Science](https://www.cs.aau.dk)."
+    topics_header: "The topics covered by the conference include, but are not limited to, 
+    the following:"
+    topics: # list of topics of interests
+      - Automata Theory
+      - Automated Deduction
+      - Computational aspects of Game Theory
+      - Concurrency and Distributed computation
+      - Decision Procedures
+      - Deductive, Compositional, and Abstraction Techniques for Verification
+      - Finite Model Theory
+      - First-order and Higher-order Logics
+      - Formal Languages
+      - Formal Methods for Systems Biology, Hybrid, Embedded, and Mobile Systems
+      - Games and Automata for Verification
+      - Game Semantics
+      - Logical aspects of Computational Complexity
+      - Logics of Programs
+      - Modal and Temporal Logics
+      - Model Checking
+      - Models of Reactive and Real-Time Systems
+      - Probabilistic Models (Markov Decision processes)
+      - Program Analysis and Software Verification
+      - Reinforcement Learning
+      - Run-time Verification and Testing
+      - Specification and Verification of Finite and Infinite-state Systems
+      - Synthesis
+    section: about
+    
+  cfp:
+    title: "Call For Papers"
+    section: cfp
+    text: #optional header before the submission instructions
+    submission_instructions: "Submitted papers should not exceed 14 pages (excluding 
+    references and clearly marked appendices) using EPTCS format (please use the LaTeX 
+    style provided [here](https://style.eptcs.org/)), be unpublished, and contain 
+    original research. For papers reporting experimental results, authors are encouraged 
+    to make their data available with their submission. 
+    Submissions must be in PDF format and will be handled via EasyChair."
+    submission_link: https://easychair.org/conferences/?conf=gandalf2026
+    publication_text: "The proceedings will be published by 
+    [Electronic Proceedings in Theoretical Computer Science](https://cgi.cse.unsw.edu.au/~eptcs/).
+    Authors of selected papers will be invited to submit a revised version of their work 
+    to a special issue of [Logical Methods in Computer Science](https://lmcs.episciences.org/).
+    <br>
+    The previous editions of GandALF already led to special issues of the International 
+    Journal of Foundations of Computer Science (GandALF 2010), Theoretical Computer 
+    Science (GandALF 2011 and 2012), Information and Computation (GandALF 2013, 2014, 
+    2016, 2017, 2018, 2019, and 2020), Acta Informatica (GandALF 2015) and Logical 
+    Methods in Computer Science (GandALF 2021, 2022, 2023, 2024, and 2025)."
+    
+  dates:
+    submission: "June 18, 2026"
+    notification: "August 3, 2026"
+    registration: "August 15, 2026"
+    camera_ready: "September 7, 2026"
+    
+  commitee:
+    title: "Commitees"
+    section: commitees
+    text: "The list of program committee members is not complete" #optional header text before the subsections
+    chairs: # list of chairs
+      - name: Giorgio Bacci
+        institution: Aalborg University
+        country: Denmark
+      - name: Mickaël Randour
+        institution: Université de Mons
+        country: Belgium
+    pc_members: # list of pc members
+      #- name: TBA
+      #  institution: 
+      #  country: 
+      #- name: ..
+      #  institution: 
+      #  country: 
+    sc_members: # list of steering committee members
+      - name: Luca Aceto
+        institution: Reykjavik University
+        country: Iceland
+      - name: Javier Esparza
+        institution: University of Munich
+        country: Germany
+      - name: Salvatore La Torre
+        institution: University of Salerno
+        country: Italy
+      - name: Angelo Montanari
+        institution: University of Udine
+        country: Italy
+      - name: Mimmo Parente
+        institution: University of Salerno
+        country: Italy
+      - name: Jean-François Raskin
+        institution: Université libre de Bruxelles
+        country: Belgium
+      - name: Martin Zimmermann
+        institution: Aalborg University
+        country: Denmark
+    organisers: # list of local organisers
+      - name: Giorgio Bacci
+        institution: Aalborg University
+      - name: Elli Anastasiadi
+        institution: Aalborg University
+      
+  
+  invited_speakers:
+    title: "Invited Speakers"
+    text: #optional header text before the pictures
+    subtext: # optional text after the pictures
+    section: speakers
+    people: # speakers infos (icons from fontawesome.com)
+      - name: "Speaker 1"
+        affiliation: "University of ..."
+        image: assets/img/team/1.jpg
+        social:
+          - url: https://homepage.com
+            icon: fa-solid fa-house
+          - url: https://scholar.google.com/
+            icon: fa-brands fa-google-scholar
+          - url: https://orcid.org/
+            icon: fa-brands fa-orcid
+      - name: "Speaker 2"
+        affiliation: "University of ..."
+        image: assets/img/team/2.jpg
+        social:
+          - url: https://homepage.com
+            icon: fa-solid fa-house
+          - url: https://scholar.google.com/
+            icon: fa-brands fa-google-scholar
+          - url: https://orcid.org/
+            icon: fa-brands fa-orcid
+      - name: "Speaker 3"
+        affiliation: "University of ..."
+        image: assets/img/team/3.jpg
+        social:
+          - url: https://homepage.com
+            icon: fa-solid fa-house
+          - url: https://scholar.google.com/
+            icon: fa-brands fa-google-scholar
+          - url: https://orcid.org/
+            icon: fa-brands fa-orcid
+  
   services:
     title: "Services"
     text: "Lorem ipsum"
@@ -68,11 +224,6 @@ en: &DEFAULT_EN
         align: right
     end: "Be Part <br> of Our <br> Story!"
 
-  about:
-    title: "About Us"
-    text: "our story"
-    body: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut eaque, laboriosam veritatis, quos non quis ad perspiciatis, totam corporis ea, alias ut unde. **Markdown** supported."
-    section: about
 
   clients:
     section: clients
@@ -91,43 +242,6 @@ en: &DEFAULT_EN
       - title: "Creative Market"
         url: https://github.com/raviriley/agency-jekyll-theme
         logo: assets/img/clients/creative-market.jpg
-
-  team:
-    title: "OUR AMAZING TEAM"
-    text: "Lorem ipsum dolor sit amet consectetur."
-    subtext: Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut eaque, laboriosam veritatis, quos non quis ad perspiciatis, totam corporis ea, alias ut unde. **Markdown** supported.
-    section: team
-    people:
-      - name: "Kay Garland"
-        role: "Lead Designer"
-        image: assets/img/team/500x500.jpg
-        social:
-          - url: https://twitter.com
-            icon: fab fa-twitter
-          - url: https://facebook.com
-            icon: fab fa-facebook-f
-          - url: https://linkedin.com
-            icon: fab fa-linkedin-in
-      - name: "Larry Parker"
-        role: "Lead Marketer"
-        image: assets/img/team/2.jpg
-        social:
-          - url: https://twitter.com
-            icon: fab fa-twitter
-          - url: https://facebook.com
-            icon: fab fa-facebook-f
-          - url: https://linkedin.com
-            icon: fab fa-linkedin-in
-      - name: "Diana Perterson"
-        role: "Lead Developer"
-        image: assets/img/team/500x500.jpg
-        social:
-          - url: https://twitter.com
-            icon: fab fa-twitter
-          - url: https://facebook.com
-            icon: fab fa-facebook-f
-          - url: https://linkedin.com
-            icon: fab fa-linkedin-in
 
   contact:
     title: "Contact Us"
@@ -172,8 +286,8 @@ es: &DEFAULT_ES
   header:
     title: ¡Bienvenido a nuestro Estudio!
     text: Es un placer conocerle
-    button: Ver más
-    buttonlink: "#servicios"
+    #button: Ver más
+    #buttonlink: "#servicios"
 
   services:
     title: "Servicios"
@@ -258,7 +372,7 @@ es: &DEFAULT_ES
     section: equipo
     people:
       - name: "Kay Garland"
-        role: "Lead Designer"
+        affiliation: "Lead Designer"
         image: assets/img/team/500x500.jpg
         social:
           - url: https://twitter.com
@@ -268,7 +382,7 @@ es: &DEFAULT_ES
           - url: https://linkedin.com
             icon: fab fa-linkedin-in
       - name: "Larry Parker"
-        role: "Lead Marketer"
+        affiliation: "Lead Marketer"
         image: assets/img/team/2.jpg
         social:
           - url: https://twitter.com
@@ -278,7 +392,7 @@ es: &DEFAULT_ES
           - url: https://linkedin.com
             icon: fab fa-linkedin-in
       - name: "Diana Perterson"
-        role: "Lead Developer"
+        affiliation: "Lead Developer"
         image: assets/img/team/500x500.jpg
         social:
           - url: https://twitter.com

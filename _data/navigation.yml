@@ -11,20 +11,31 @@
 # -----------------
 en: &DEFAULT_EN
   nav:
-    - title: "Services"
-      section: services
-    - title: "Portfolio"
-      section: portfolio
     - title: "About"
       section: about
-    - title: "Timeline"
-      section: timeline
-    - title: "Team"
-      section: team
-    - title: "Contact"
-      section: contact
-    - title: "Theme Source"
-      url: https://github.com/raviriley/agency-jekyll-theme/
+    - title: "Call for Papers"
+      section: cfp
+    - title: "Commitees"
+      section: commitees
+    #- title: "Invited Speakers"
+    #  section: speakers
+    #- title: "Program"
+    #  section: program
+    #- title: "Venue"
+    #  section: venue
+      
+    #- title: "Services"
+    #  section: services
+    #- title: "Portfolio"
+    #  section: portfolio
+    #- title: "Timeline"
+    #  section: timeline
+    #- title: "Team"
+    #  section: team
+    #- title: "Contact"
+    #  section: contact
+    #- title: "Theme Source"
+    #  url: https://github.com/raviriley/agency-jekyll-theme/
 en-US:
   <<: *DEFAULT_EN
 en-CA:

@@ -1,0 +1,94 @@
+// Global styling for this template
+body {
+  overflow-x: hidden;
+  @include body-font;
+}
+
+p {
+  line-height: 1.75;
+}
+
+a {
+  color: $primary;
+  &:hover {
+    color: darken($primary, 10%);
+  }
+}
+
+.text-primary {
+  color: $primary !important;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: 700;
+  @include heading-font;
+}
+
+.inline-list {
+  list-style: none;      /* Remove default bullets */
+  padding: 10px;
+  margin: 0;
+  li {
+    //display: inline;
+    font-style: italic;
+    @include serif-font;
+  }
+  //li:not(:first-child)::before {
+  //  content: "•";          /* Black filled bullet */
+  //  margin: 0 4px;         /* Space around bullet */
+  //}
+}
+
+.page-section {
+  padding: 50px 0 50px 0;
+  h2.section-heading {
+  	text-align: center;
+    font-size: 40px;
+    margin-top: 0;
+    margin-bottom: 15px;
+  }
+  h3.section-subheading {
+    font-size: 20px;
+    font-weight: 400;
+    font-style: italic;
+    margin-bottom: 10px;
+    text-transform: none;
+    @include serif-font;
+  }
+  div.body {
+  	font-size: 16px;
+    font-weight: 400;
+    margin-bottom: 10px;
+    text-transform: none;
+    @include body-font;
+  }
+}
+@media (min-width: 768px) {
+  section {
+    padding: 150px 0;
+  }
+}
+
+// Highlight color customization
+::-moz-selection {
+  background: $primary;
+  text-shadow: none;
+}
+
+::selection {
+  background: $primary;
+  text-shadow: none;
+}
+
+img::selection {
+  background: transparent;
+}
+
+img::-moz-selection {
+  background: transparent;
+}

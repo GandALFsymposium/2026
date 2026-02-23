@@ -1,0 +1,107 @@
+<!-- Commitees -->
+{% if site.locale and site.locale != "" and site.locale != nil %}
+<section class="page-section" id="{{ site.data.sitetext[site.locale].commitees.section | default: "commitees" }}">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12 text-justify">
+        <h2 class="section-heading text-uppercase">{{ site.data.sitetext[site.locale].commitee.title | default: "Commitees" }}</h2>
+        <div class="body text-muted">{{ site.data.sitetext[site.locale].commitee.text | markdownify }}</div>
+        
+        <h3 class="section-subheading text-muted">Programme Commitee</h3>
+        <div class="section-subheading text-muted">
+          <ul class="text-muted">
+            {% for chair in site.data.sitetext[site.locale].commitee.chairs %}
+            <li> 
+              {{ chair.name }} ({{ chair.institution }}, {{ chair.country }})
+              - <strong>chair</strong>
+            </li>
+            {% endfor %}
+          </ul>
+          <ul class="text-muted">
+            {% for pc in site.data.sitetext[site.locale].commitee.pc_members %}
+            <li> 
+              {{ pc.name }} ({{ pc.institution }}, {{ pc.country }})
+            </li>
+            {% endfor %}
+          </ul>
+        </div>
+        <hr>
+        <h3 class="section-subheading text-muted">Steering Commitee</h3>
+        <div class="section-subheading text-muted">
+          <ul class="text-muted">
+            {% for sc in site.data.sitetext[site.locale].commitee.sc_members %}
+            <li> 
+              {{ sc.name }} ({{ sc.institution }}, {{ sc.country }})
+            </li>
+            {% endfor %}
+          </ul>
+        </div>
+        <hr>
+        <h3 class="section-subheading text-muted">Organising Commitee</h3>
+        <div class="section-subheading text-muted">
+          <ul class="text-muted">
+            {% for organiser in site.data.sitetext[site.locale].commitee.organisers %}
+            <li> 
+              {{ organiser.name }} ({{ organiser.institution }})
+            </li>
+            {% endfor %}
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+{% else %}
+<section class="page-section" id="{{ site.data.sitetext.commitees.section | default: "commitees" }}">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12 text-justify">
+        <h2 class="section-heading text-uppercase">{{ site.data.sitetext.commitee.title | default: "Commitees" }}</h2>
+        <div class="body text-muted">{{ site.data.sitetext.commitee.text | markdownify }}</div>
+        
+        <h3 class="section-subheading text-muted">Programme Commitee</h3>
+        <div class="section-subheading text-muted">
+          <ul class="text-muted">
+            {% for chair in site.data.sitetext.commitee.chairs %}
+            <li> 
+              {{ chair.name }} ({{ chair.institution }}, {{ chair.country }})
+              - <strong>chair</strong>
+            </li>
+            {% endfor %}
+          </ul>
+          <ul class="text-muted">
+            {% for pc in site.data.sitetext.commitee.pc_members %}
+            <li> 
+              {{ pc.name }} ({{ pc.institution }}, {{ pc.country }})
+            </li>
+            {% endfor %}
+          </ul>
+        </div>
+        <hr>
+        <h3 class="section-subheading text-muted">Steering Commitee</h3>
+        <div class="section-subheading text-muted">
+          <ul class="text-muted">
+            {% for sc in site.data.sitetext.commitee.sc_members %}
+            <li> 
+              {{ sc.name }} ({{ sc.institution }}, {{ sc.country }})
+            </li>
+            {% endfor %}
+          </ul>
+        </div>
+        <hr>
+        <h3 class="section-subheading text-muted">Organising Commitee</h3>
+        <div class="section-subheading text-muted">
+          <ul class="text-muted">
+            {% for organiser in site.data.sitetext.commitee.organisers %}
+            <li> 
+              {{ organiser.name }} ({{ organiser.institution }})
+            </li>
+            {% endfor %}
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+{% endif %}
+<!-- End Commitees -->
