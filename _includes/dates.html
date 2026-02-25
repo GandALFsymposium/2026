@@ -1,0 +1,71 @@
+<!-- Call for Papers -->
+{% if site.locale and site.locale != "" and site.locale != nil %}
+<section class="page-section" id="{{ site.data.sitetext[site.locale].dates.section | default: "dates" }}">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12 text-justify">
+        <h2 class="section-heading text-uppercase">{{ site.data.sitetext[site.locale].dates.title | default: "Important Dates" }}</h2>      
+        <div class="body text-muted">
+          <ul class="description-list text-muted">
+          	<li> 
+              <strong>Abstract submission</strong>: {{ site.data.sitetext[site.locale].dates.abstract }}
+            </li>
+            <li> 
+              <strong>Submission deadline</strong>: {{ site.data.sitetext[site.locale].dates.submission }}
+            </li>
+            <li> 
+              <strong>Notification</strong>: {{ site.data.sitetext[site.locale].dates.notification }}
+            </li>
+            <li> 
+              <strong>Early registration deadline</strong>: {{ site.data.sitetext[site.locale].dates.registration }}
+            </li>
+            <li> 
+              <strong>Camera ready</strong>: {{ site.data.sitetext[site.locale].dates.camera_ready }}
+            </li>
+            <li> 
+              <strong>Conference Dates</strong>: {{ site.data.sitetext[site.locale].header.date }}
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+{% else %}
+<section class="page-section" id="{{ site.data.sitetext.dates.section | default: "dates" }}">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12 text-justify">
+        <h2 class="section-heading text-uppercase">{{ site.data.sitetext.dates.title | default: "Important Dates" }}</h2>      
+        <div class="body text-muted">
+          <ul class="description-list text-muted">
+          	<li> 
+              <strong>Abstract submission</strong>: {{ site.data.sitetext.dates.abstract }}
+            </li>
+            <li> 
+              <strong>Submission deadline</strong>: {{ site.data.sitetext.dates.submission }}
+            </li>
+            <li> 
+              <strong>Notification</strong>: {{ site.data.sitetext.dates.notification }}
+            </li>
+            <li> 
+              <strong>Early registration deadline</strong>: {{ site.data.sitetext.dates.registration }}
+            </li>
+            <li> 
+              <strong>Camera ready</strong>: {{ site.data.sitetext.dates.camera_ready }}
+            </li>
+            <li> 
+              <strong>Conference Dates</strong>: {{ site.data.sitetext.header.date }}
+            </li>
+          </ul>
+        </div> 
+        
+
+    </div>
+    </div>
+  </div>
+</section>
+{% endif %}
+<!-- End Call for Papers -->
+
+

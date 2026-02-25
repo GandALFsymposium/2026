@@ -5,7 +5,7 @@
     <div class="row">
       <div class="col-lg-12 text-justify">
         <h2 class="section-heading text-uppercase">{{ site.data.sitetext[site.locale].cfp.title | default: "Call for papers" }}</h2>
-        {% if site.data.sitetext[site.locale].about.text != nil %} 
+        {% if site.data.sitetext[site.locale].cfp.text != nil %} 
         <div class="body text-muted">{{ site.data.sitetext[site.locale].cfp.text | markdownify }}</div>
         <hr> 
         {% endif %}
@@ -18,28 +18,6 @@
           target="_blank">Submit Now</a>
         </div>
 	    {%- endif -%}
-	    <hr>
-        <h3 class="section-subheading text-muted">Important Dates</h3>
-        
-        <div class="body text-muted">
-          <ul class="description_list text-muted">
-            <li> 
-              <strong>Submission deadline</strong>: {{ site.data.sitetext[site.locale].dates.submission }}
-            </li>
-            <li> 
-              <strong>Notification</strong>: {{ site.data.sitetext[site.locale].dates.notification }}
-            </li>
-            <li> 
-              <strong>Early registration deadline</strong>: {{ site.data.sitetext[site.locale].dates.registration }}
-            </li>
-            <li> 
-              <strong>Camera ready</strong>: {{ site.data.sitetext[site.locale].dates.camera_ready }}
-            </li>
-            <li> 
-              <strong>Conference Dates</strong>: {{ site.data.sitetext[site.locale].header.date }}
-            </li>
-          </ul>
-        </div>
 	    
 	    <hr>
         <h3 class="section-subheading text-muted">Publication</h3>
@@ -54,16 +32,20 @@
     <div class="row">
       <div class="col-lg-12 text-justify">
         <h2 class="section-heading text-uppercase">{{ site.data.sitetext.cfp.title | default: "Call for papers" }}</h2>
-        <h3 class="section-subheading text-muted">{{ site.data.sitetext.cfp.text | markdownify }}</h3>
+        {% if site.data.sitetext[site.locale].cfp.text != nil %} 
+        <div class="body text-muted">{{ site.data.sitetext.cfp.text | markdownify }}</div>
+        <hr> 
+        {% endif %}
         <h3 class="section-subheading text-muted">Submission Instructions</h3>
         <div class="body text-muted">{{ site.data.sitetext.cfp.submission_instructions | markdownify }}</div>
-        {%- if site.data.sitetext.cfp.submission_link != "" -%}
+        {%- if site.data.sitetext[site.locale].cfp.submission_link != "" -%}
         <div class="text-center">
           <a class="btn btn-primary btn-xl text-uppercase js-scroll-trigger" 
-          href="{{ site.data.sitetext.cfp.submission_link }}" 
+          href="{{ site.data.sitetext[site.locale].cfp.submission_link }}" 
           target="_blank">Submit Now</a>
         </div>
 	    {%- endif -%}
+	    
 	    <hr>
         <h3 class="section-subheading text-muted">Publication</h3>
         <div class="body text-muted">{{ site.data.sitetext.cfp.publication_text | markdownify }}</div>
