@@ -105,12 +105,57 @@ en: &DEFAULT_EN
         institution: Université de Mons
         country: Belgium
     pc_members: # list of pc members
-      #- name: TBA
+      #- name: 
       #  institution: 
       #  country: 
-      #- name: ..
-      #  institution: 
-      #  country: 
+      - name: Bartosz Bednarczyk
+        institution: University of Wrocław
+        country: Poland
+      - name: Laurent Doyen
+        institution: CNRS & LMF, ENS Paris-Saclay
+        country: France
+      - name: Marie Fortin
+        institution: IRIF, CNRS, Université Paris Cité
+        country: France
+      - name: Raffaella Gentilini
+        institution: University of Perugia
+        country: Italy
+      - name: Aline Goeminne
+        institution: ENS Rennes
+        country: France
+      - name: James C. A. Main
+        institution: University of Oxford
+        country: United Kingdom
+      - name: Alessio Mansutti
+        institution: IMDEA Software Institute
+        country: Spain
+      - name: Petr Novotný
+        institution: Masaryk University
+        country: Czech Republic
+      - name: Charles Paperman
+        institution: Université de Lille
+        country: France
+      - name: Julie Parreaux
+        institution: University of Warsaw
+        country: Poland
+      - name: Igor Potapov
+        institution: University of Liverpool
+        country: United Kingdom
+      - name: Jeremy Sproston
+        institution: University of Turin
+        country: Italy
+      - name: B Srivathsan
+        institution: Chennai Mathematical Institute
+        country: India
+      - name: Marie Van Den Bogaard	
+        institution: Université Gustave Eiffel
+        country: France
+      - name: Chana Weil-Kennedy
+        institution: CEA List
+        country: France
+      - name: TBA
+        institution: ...
+        country: ...
     sc_members: # list of steering committee members
       - name: Luca Aceto
         institution: Reykjavik University
