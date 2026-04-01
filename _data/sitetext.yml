@@ -109,8 +109,8 @@ en: &DEFAULT_EN
       #  institution: 
       #  country: 
       - name: Bartosz Bednarczyk
-        institution: University of Wrocław
-        country: Poland
+        institution: University of Wrocław, Poland
+        country: and TU Wien, Austria
       - name: Laurent Doyen
         institution: CNRS & LMF, ENS Paris-Saclay
         country: France
