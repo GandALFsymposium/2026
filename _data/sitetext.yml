@@ -117,6 +117,9 @@ en: &DEFAULT_EN
       - name: Marie Fortin
         institution: IRIF, CNRS, Université Paris Cité
         country: France
+      - name: Hadar Frenkel
+        institution: Bar-Ilan University
+        country: Israel
       - name: Raffaella Gentilini
         institution: University of Perugia
         country: Italy
@@ -129,6 +132,12 @@ en: &DEFAULT_EN
       - name: Alessio Mansutti
         institution: IMDEA Software Institute
         country: Spain
+      - name: Angelo Matteo
+        institution: University of Udine
+        country: Italy
+      - name: Matteo Mio
+        institution: CNRS/ENS-Lyon
+        country: France
       - name: Petr Novotný
         institution: Masaryk University
         country: Czech Republic
@@ -139,6 +148,9 @@ en: &DEFAULT_EN
         institution: University of Warsaw
         country: Poland
       - name: Igor Potapov
+        institution: University of Liverpool
+        country: United Kingdom
+      - name: David Purser
         institution: University of Liverpool
         country: United Kingdom
       - name: Jeremy Sproston
@@ -153,9 +165,9 @@ en: &DEFAULT_EN
       - name: Chana Weil-Kennedy
         institution: CEA List
         country: France
-      - name: TBA
-        institution: ...
-        country: ...
+      #- name: TBA
+      #  institution: ...
+      #  country: ...
     sc_members: # list of steering committee members
       - name: Luca Aceto
         institution: Reykjavik University
@@ -191,36 +203,36 @@ en: &DEFAULT_EN
     subtext: # optional text after the pictures
     section: speakers
     people: # speakers infos (icons from fontawesome.com)
-      - name: "Speaker 1"
+      - name: "Ezio Bartocci"
         affiliation: "University of ..."
-        image: assets/img/team/1.jpg
+        image: assets/img/team/bartocci.png
         social:
-          - url: https://homepage.com
+          - url: https://www.eziobartocci.com/
             icon: fa-solid fa-house
-          - url: https://scholar.google.com/
+          - url: https://scholar.google.com/citations?user=EeK43rAAAAAJ&hl=en
             icon: fa-brands fa-google-scholar
-          - url: https://orcid.org/
+          - url: https://orcid.org/0000-0002-8004-6601
             icon: fa-brands fa-orcid
-      - name: "Speaker 2"
-        affiliation: "University of ..."
-        image: assets/img/team/2.jpg
-        social:
-          - url: https://homepage.com
-            icon: fa-solid fa-house
-          - url: https://scholar.google.com/
-            icon: fa-brands fa-google-scholar
-          - url: https://orcid.org/
-            icon: fa-brands fa-orcid
-      - name: "Speaker 3"
-        affiliation: "University of ..."
-        image: assets/img/team/3.jpg
-        social:
-          - url: https://homepage.com
-            icon: fa-solid fa-house
-          - url: https://scholar.google.com/
-            icon: fa-brands fa-google-scholar
-          - url: https://orcid.org/
-            icon: fa-brands fa-orcid
+      #- name: "Speaker 2"
+      #  affiliation: "University of ..."
+      #  image: assets/img/team/2.jpg
+      #  social:
+      #    - url: https://homepage.com
+      #      icon: fa-solid fa-house
+      #    - url: https://scholar.google.com/
+      #      icon: fa-brands fa-google-scholar
+      #    - url: https://orcid.org/
+      #      icon: fa-brands fa-orcid
+      #- name: "Speaker 3"
+      #  affiliation: "University of ..."
+      #  image: assets/img/team/3.jpg
+      #  social:
+      #    - url: https://homepage.com
+      #      icon: fa-solid fa-house
+      #    - url: https://scholar.google.com/
+      #      icon: fa-brands fa-google-scholar
+      #    - url: https://orcid.org/
+      #      icon: fa-brands fa-orcid
 
 ### End of conference info
 
