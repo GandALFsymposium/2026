@@ -204,7 +204,7 @@ en: &DEFAULT_EN
     section: speakers
     people: # speakers infos (icons from fontawesome.com)
       - name: "Ezio Bartocci"
-        affiliation: "University of ..."
+        affiliation: "TU Wien"
         image: assets/img/team/bartocci.png
         social:
           - url: https://www.eziobartocci.com/
