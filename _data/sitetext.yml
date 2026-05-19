@@ -213,16 +213,16 @@ en: &DEFAULT_EN
             icon: fa-brands fa-google-scholar
           - url: https://orcid.org/0000-0002-8004-6601
             icon: fa-brands fa-orcid
-      #- name: "Speaker 2"
-      #  affiliation: "University of ..."
-      #  image: assets/img/team/2.jpg
-      #  social:
-      #    - url: https://homepage.com
-      #      icon: fa-solid fa-house
-      #    - url: https://scholar.google.com/
-      #      icon: fa-brands fa-google-scholar
-      #    - url: https://orcid.org/
-      #      icon: fa-brands fa-orcid
+      - name: "Sarah Winter"
+        affiliation: "IRIF - Université Paris Cité"
+        image: assets/img/team/winter.jpg
+        social:
+          - url: https://sarahwinter.net/
+            icon: fa-solid fa-house
+          - url: https://scholar.google.com/citations?user=sMim67gAAAAJ&hl=en
+            icon: fa-brands fa-google-scholar
+          - url: https://orcid.org/0000-0002-3499-1995
+            icon: fa-brands fa-orcid
       #- name: "Speaker 3"
       #  affiliation: "University of ..."
       #  image: assets/img/team/3.jpg
