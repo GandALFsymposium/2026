@@ -223,7 +223,7 @@ en: &DEFAULT_EN
             icon: fa-brands fa-google-scholar
           - url: https://orcid.org/0000-0002-3499-1995
             icon: fa-brands fa-orcid
-       name: "Nicola Cotumaccio"
+      - name: "Nicola Cotumaccio"
         affiliation: "HIIT, University of Helsinki"
         image: assets/img/team/cotumaccio.jpg
         social:
