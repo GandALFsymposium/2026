@@ -223,16 +223,16 @@ en: &DEFAULT_EN
             icon: fa-brands fa-google-scholar
           - url: https://orcid.org/0000-0002-3499-1995
             icon: fa-brands fa-orcid
-      #- name: "Speaker 3"
-      #  affiliation: "University of ..."
-      #  image: assets/img/team/3.jpg
-      #  social:
-      #    - url: https://homepage.com
-      #      icon: fa-solid fa-house
-      #    - url: https://scholar.google.com/
-      #      icon: fa-brands fa-google-scholar
-      #    - url: https://orcid.org/
-      #      icon: fa-brands fa-orcid
+       name: "Nicola Cotumaccio"
+        affiliation: "HIIT, University of Helsinki"
+        image: assets/img/team/cotumaccio.jpg
+        social:
+          - url: https://www.hiit.fi/funded-researchers/nicola-cotumaccio
+            icon: fa-solid fa-house
+          - url: https://scholar.google.com/citations?user=DKdQ7bYAAAAJ&hl=en
+            icon: fa-brands fa-google-scholar
+          - url: https://orcid.org/0000-0002-1402-5298
+            icon: fa-brands fa-orcid
 
 ### End of conference info
 
