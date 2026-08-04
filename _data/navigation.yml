@@ -25,8 +25,8 @@ en: &DEFAULT_EN
       url: registration
     - title: "Program"
       url: program
-    - title: "Venue"
-      url: venue
+    - title: "Local Info"
+      url: local_info
       
     #- title: "Services"
     #  section: services

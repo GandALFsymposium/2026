@@ -30,9 +30,9 @@ en: &DEFAULT_EN
     at an early stage of development are also welcome."
     local_info: "GandALF 2026 will take place in Aalborg, Denmark, on September 15--17, 2026.
     <br>
-    The conference will be hosted by [Aalborg University](https://www.aau.dk) and 
+    The conference will be hosted at [Comwell Hvid Hus Hotel, Aalborg](https://www.comwell.com/hoteller/comwell-hotel-aalborg) and 
     it is organised by the [FICS](https://www.cs.aau.dk/research/research-groups/foundations-for-interacting-and-computing-systems-fics) 
-    reaserch group at the [Department of Computer Science](https://www.cs.aau.dk)."
+    research group at the [Department of Computer Science](https://www.cs.aau.dk)."
     topics_header: "The topics covered by the conference include, but are not limited to, 
     the following:"
     topics: # list of topics of interests
