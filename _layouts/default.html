@@ -23,6 +23,90 @@
 	  <!-- Custom scripts for this template -->
 	  <script src="assets/js/agency.min.js"></script>
 	  <script src="https://kit.fontawesome.com/0b38f326e0.js" crossorigin="anonymous"></script>
+	  
+	  <script>
+    // Injected Web App URL from the server template evaluation
+    const WEB_APP_URL = "https://script.google.com/macros/s/AKfycbyCOutFEs8q3bdRtaVBLY6_OCQ7cDREhQrgkYNlOKoIjvV3hcD0X4cqB4RYy59qCymTnw/exec";
+    
+    const form = document.getElementById('registrationForm');
+    const checkoutBtn = document.getElementById('checkoutBtn');
+    const loadingMsg = document.getElementById('loadingMsg');
+    const statusHeader = document.getElementById('registrationStatus');
+
+    // Registration phase logic based on current date
+    const currentDate = new Date();
+    const earlyDeadline = new Date('2026-08-20T23:59:59');
+    const closedDeadline = new Date('2026-09-14T23:59:59');
+
+    if (currentDate > closedDeadline) {
+      statusHeader.textContent = 'Registrations are closed';
+      form.style.display = 'none';
+    } else if (currentDate > earlyDeadline) {
+      statusHeader.textContent = 'Regular Registration';
+    } else {
+      statusHeader.textContent = 'Early Registration';
+    }
+
+    // Continuously check validity on every input to toggle checkout button
+    form.addEventListener('input', () => {
+      // form.checkValidity() ensures all HTML5 'required' constraints are met
+      checkoutBtn.disabled = !form.checkValidity();
+    });
+
+    // Handle form submission
+    form.addEventListener('submit', (e) => {
+      e.preventDefault(); // Prevents default page reload
+      
+      // Update UI state for processing
+      checkoutBtn.disabled = true;
+      checkoutBtn.textContent = 'Processing...';
+      loadingMsg.style.display = 'block';
+
+      // Map DOM inputs to object matching requested schema
+      const formData = {
+        name: document.getElementById('name').value.trim(),
+        surname: document.getElementById('surname').value.trim(),
+        email: document.getElementById('email').value.trim(),
+        affiliation: document.getElementById('affiliation').value.trim(),
+        billing: {
+          address: document.getElementById('address').value.trim(),
+          postCode: document.getElementById('postCode').value.trim(),
+          city: document.getElementById('city').value.trim(),
+          country: document.getElementById('country').value.trim()
+        },
+        guests: document.getElementById('guests').value,
+        dietary: document.getElementById('dietary').value.trim(),
+        printedInvoice: document.getElementById('invoice').checked,
+        terms: document.getElementById('terms').checked
+      };
+
+      // Pass the object to Code.gs function via fetch POST
+      fetch(WEB_APP_URL, {
+        method: 'POST',
+        // Sending as text/plain bypasses CORS preflight OPTIONS requests which Apps Script rejects
+        headers: {
+          'Content-Type': 'text/plain;charset=utf-8',
+        },
+        body: JSON.stringify(formData)
+      })
+      .then(response => response.json())
+      .then(result => {
+        if (result.success && result.url) {
+          // On success, redirect the top window (escaping AppScript iframe)
+          window.top.location.href = result.url;
+        } else {
+          throw new Error(result.error || 'Unknown error occurred on the server.');
+        }
+      })
+      .catch(error => {
+        // Handle fetch or server-side errors gracefully
+        alert('Registration failed: ' + error.message);
+        checkoutBtn.disabled = false; // Re-enable for retry
+        checkoutBtn.textContent = 'Checkout';
+        loadingMsg.style.display = 'none';
+      });
+    });
+  </script>
 
   </body>
 </html>

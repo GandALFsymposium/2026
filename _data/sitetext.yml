@@ -15,8 +15,8 @@ en: &DEFAULT_EN
     text: Seventeenth International Symposium on Games, Automata, Logics, and Formal Verification
     date: September 15-17, 2026
     location: Aalborg, Denmark
-    button: "" #Register
-    buttonlink: "#registration"
+    button: "Register now!"
+    buttonlink: "registration"
 
   about:
     title: "About GandALF"
@@ -90,7 +90,7 @@ en: &DEFAULT_EN
     abstract: "June 20, 2026 (extended)"
     submission: "June 22, 2026"
     notification: "August 3, 2026"
-    registration: "August 15, 2026"
+    registration: "August 20, 2026"
     camera_ready: "September 7, 2026"
     
   commitee:
@@ -193,6 +193,8 @@ en: &DEFAULT_EN
     organisers: # list of local organisers
       - name: Giorgio Bacci
         institution: Aalborg University
+      - name: Giovanni Bacci
+        institution: Aalborg University
       - name: Elli Anastasiadi
         institution: Aalborg University
       
@@ -237,7 +239,7 @@ en: &DEFAULT_EN
 ### End of conference info
 
   footer:
-    legal: "Privacy Policy"
+    legal: "Privacy Policy and Registration Conditions"
     
 en-US:
   <<: *DEFAULT_EN

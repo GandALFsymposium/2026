@@ -13,18 +13,20 @@ en: &DEFAULT_EN
   nav:
     - title: "About"
       section: about
-    - title: "Call for Papers"
-      section: cfp
-    - title: "Important Dates"
-      section: dates
-    - title: "Commitees"
-      section: commitees
     - title: "Invited Speakers"
       section: speakers
-    #- title: "Program"
-    #  section: program
-    #- title: "Venue"
-    #  section: venue
+    - title: "Dates"
+      section: dates
+    - title: "Call for Papers"
+      section: cfp
+    #- title: "Commitees"
+    #  section: commitees
+    - title: "Register"
+      url: registration
+    - title: "Program"
+      url: program
+    - title: "Venue"
+      url: venue
       
     #- title: "Services"
     #  section: services

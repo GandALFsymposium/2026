@@ -1,32 +1,43 @@
 ---
 layout: page
-title: Privacy Policy
+title: Privacy Policy and Registration Conditions
 ---
 <div class="col-lg-12 text-center">
-	<h2 class="section-heading text-uppercase">Privacy Policy</h2>
+	<h2 class="section-heading text-uppercase">{{ page.title }}</h2>
 </div>
 
 This Privacy Policy describes how your personal information is collected, used, and shared when you visit {{ site.title }} (the “Site”).
 
-**PERSONAL INFORMATION WE COLLECT**
 
-{% if site.analytics.google %}
+**THE INFOMATION WE COLLECT**
 
-Automatically Collected (Google Analytics):
+The registration system for **GandALF 2026** is operated by **Leveark ApS** on behalf of the conference organisers.
 
-When you visit the Site, we automatically receive information about your device from your browser, such as your IP address. As you browse the Site, we also collect information about how you interact with the Site. We refer to this automatically-collected information as “Device Information”.
+The personal data collected during registration (such as your name, affiliation, email address, billing information, and any dietary requirements you choose to provide) will be used solely for the purposes of:
 
-We collect Device Information using cookies. “Cookies” are data files that are placed on your device. For more information about cookies and how to disable them, visit http://www.allaboutcookies.org.
+* processing your conference registration and payment;
+* communicating important information related to the conference;
+* organising the conference and associated social events; and
+* complying with applicable legal and accounting obligations.
 
-We do this using Google Analytics: <https://www.google.com/intl/en/policies/privacy/>.
+Payments are processed securely through **Stripe**. Credit card information is handled directly and exclusively by Stripe and is **never stored or processed by Leveark ApS or the conference organizers**.
 
-You can opt-out of Google Analytics here: <https://tools.google.com/dlpage/gaoptout>.
+Your personal data will not be shared with third parties except where necessary to provide the registration and payment services described above, or where disclosure is required by applicable law.
 
-{% else %}
+Personal data will be retained only for as long as necessary for the purposes described above and, in any case, will be deleted no later than **six months after the conclusion of the conference**, except where a longer retention period is required by law (for example, for accounting or tax purposes).
 
-We do not collect any data about you or use any cookies.
+The processing of your personal data is carried out in accordance with the **General Data Protection Regulation (EU) 2016/679 (GDPR)**. Under the GDPR, you have the right to request access to your personal data, to request its correction or deletion where applicable, to object to or restrict certain processing activities, and to lodge a complaint with your national data protection authority if you believe your data has been processed unlawfully.
 
-{% endif %}
+If you have any questions regarding the processing of your personal data, please contact the conference organisers at <a href="mailto:{{ site.email }}">{{ site.email }}</a>.
+
+**REGISTRATION CONDITIONS**
+
+By registering for GandALF 2026, you agree to the following conditions:
+
+* Registration fees are **non-refundable**. No refunds will be issued in the event of cancellation or non-attendance.
+* Registration may be transferred to another participant only with the prior approval of the conference organisers.
+* At least one author of each accepted paper must register for the conference and present the paper. Papers that are not presented at the conference will not be included in the proceedings.
+
 
 **CHANGES**
 

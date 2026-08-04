@@ -13,9 +13,12 @@
         <div class="body text-muted">{{ site.data.sitetext[site.locale].cfp.submission_instructions | markdownify }}</div>
         {%- if site.data.sitetext[site.locale].cfp.submission_link != "" -%}
         <div class="text-center">
+          <!--
           <a class="btn btn-primary btn-xl text-uppercase js-scroll-trigger" 
           href="{{ site.data.sitetext[site.locale].cfp.submission_link }}" 
-          target="_blank">Submit Now</a>
+          target="_blank">Submit Now</a> 
+          -->
+          <div class="btn btn-primary btn-xl text-uppercase"><del>Submit Now</del> (Closed)</div>
         </div>
 	    {%- endif -%}
 	    
