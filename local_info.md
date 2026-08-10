@@ -7,7 +7,7 @@ title: Local Information
 </div>
 <br>
 
-##### CONFERENCE VENUE
+#### Conference Venue
 
 GandALF 2026 will take place at Hotel [Comwell Hvide Hus Aalborg](https://www.comwell.com/hoteller/comwell-hotel-aalborg), 
 conveniently located in the heart of Aalborg, next to the city's central park, **Kildeparken**. 
@@ -26,7 +26,7 @@ video connectors will be available in the conference room; however, we recommend
 presenters bring any adapters they may require for their own devices.
 
 
-##### TRAVEL OPTIONS
+#### Travel Options
 
 <div class="row">
 <div class="col-lg-4" markdown="1">
@@ -74,13 +74,13 @@ in advance to inquire about availability.
 </div>
 
 
-##### ACCOMMODATION
+#### Accommodation
 
 A wide range of hotels is available within walking distance of the conference venue.
 
-* [Comwell Hvide Hus Aalborg](https://www.comwell.com/hoteller/comwell-hotel-aalborg)
+* [Comwell Hvide Hus Aalborg](ttps://www.comwell.com/en/bookingcode?_bc=BC-GANDALF-2026%281%29)
   (0 minutes' walk) **recommended** 
-  <br>Pre-booked rooms are available for conference participants using the **booking code BC-GANDALF-2026**.
+  <br>Pre-booked rooms are available for conference participants until August 20 using the **booking code BC-GANDALF-2026(1)**.
 * [Scandic Aalborg City](https://www.scandichotels.com/en/)
   (8 minutes' walk)
 * [Milling Hotel Gestus](https://millinghotels.dk/hoteller/milling-hotel-gestus/)

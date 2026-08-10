@@ -28,18 +28,6 @@ en: &DEFAULT_EN
     - title: "Local Info"
       url: local_info
       
-    #- title: "Services"
-    #  section: services
-    #- title: "Portfolio"
-    #  section: portfolio
-    #- title: "Timeline"
-    #  section: timeline
-    #- title: "Team"
-    #  section: team
-    #- title: "Contact"
-    #  section: contact
-    #- title: "Theme Source"
-    #  url: https://github.com/raviriley/agency-jekyll-theme/
 en-US:
   <<: *DEFAULT_EN
 en-CA:

@@ -98,8 +98,8 @@ img::-moz-selection {
 /* GandALF 2026 tables */
 
 table {
-  width: 100%;
-  max-width: 800px;
+  width: 90%;
+  //max-width: 800px;
   margin: 2rem auto;
   border-collapse: collapse;
   font-size: 1rem;
@@ -132,8 +132,8 @@ table tr:hover {
 
 table td:last-child,
 table th:last-child {
-  text-align: right;
-  white-space: nowrap;
+  //text-align: center;
+  //white-space: nowrap;
 }
 
 /* Mobile layout */
