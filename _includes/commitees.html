@@ -47,6 +47,17 @@
             {% endfor %}
           </ul>
         </div>
+        <hr>
+        <h3 class="section-subheading text-muted">Organizational support</h3>
+        <div class="section-subheading text-muted">
+          <ul class="text-muted">
+            {% for supporter in site.data.sitetext[site.locale].commitee.supporters %}
+            <li>
+              <a href="{{ supporter.link }}">{{ supporter.name }}</a>
+            </li>
+            {% endfor %}
+          </ul>
+        </div>
       </div>
     </div>
   </div>

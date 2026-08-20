@@ -197,6 +197,11 @@ en: &DEFAULT_EN
         institution: Aalborg University
       - name: Elli Anastasiadi
         institution: Aalborg University
+    supporters: # list of organizational supporters
+      - name: Lervaerk
+        link: https://www.lervaerk.com/
+      - name: Aalborg Convention Bureau
+        link: https://www.enjoynordjylland.dk/aalborgcvb
       
   
   invited_speakers:
