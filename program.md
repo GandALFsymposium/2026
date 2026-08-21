@@ -9,7 +9,7 @@ title: Program
 
 #### Technical Program
 
-| Time        | DAY 1                                                                                                                                                                                                                                                       |
+| Time        | DAY 1 - 15 Sep                                                                                                                                                                                                                                                   |
 | ----------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | 09:00–09:30 | Registration                                                                                                                                                                                                                                                |
 | 09:30–10:30 | *Invited talk* – **Rule-guided Explainable Testing and Improvement of Deep Reinforcement Learning Policies**<br>Ezio Bartocci                                                                                                                               |
@@ -20,7 +20,7 @@ title: Program
 | 14:30–15:00 | Coffee Break                                                                                                                                                                                                                                                |
 | 15:00–16:00 | **Rabin Games Revisited**<br>Antonio Di Stasio and Moshe Vardi<br><br>**Lasso Games**<br>Krzysztof Żyndul                                                                                                                                                   |
 
-| Time        | DAY 2                                                                                                                                                                                                                                                       |
+| Time        | DAY 2 - 16 Sep                                                                                                                                                                                                                                                    |
 | ----------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | 09:30–10:30 | *Invited talk* – **Game-based Model-checking of Hyperproperties**<br>Sarah Winter                                                                                                                                                                           |
 | 10:30–11:00 | Coffee Break                                                                                                                                                                                                                                                |
@@ -28,7 +28,7 @@ title: Program
 | 12:00–13:30 | Lunch + Coffee Break                                                                                                                                                                                                                                        |
 | 14:30–22:00 | **Social Program** 
 
-| Time        | DAY 3                                                                                                                                                                                                                                                       |
+| Time        | DAY 3 - 17 Sep                                                                                                                                                                                                                                                      |
 | ----------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | 09:30–10:30 | *Invited talk* – **Wheeler Automata: a Tutorial**<br>Nicola Cotumaccio                                                                                                                                                                                      |
 | 10:30–11:00 | Coffee Break                                                                                                                                                                                                                                                |
