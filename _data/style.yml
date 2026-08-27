@@ -6,3 +6,4 @@
 #Image Customization
 header-image: "../img/wallpaper.jpg"
 contact-image: "../img/map-image.png"
+portfolio-icon: "fa-solid fa-magnifying-glass fa-3x" #"fa-regular fa-camera fa-3x"

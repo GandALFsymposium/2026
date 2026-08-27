@@ -29,10 +29,7 @@ en: &DEFAULT_EN
     papers on all relevant topics in these areas. Papers discussing new ideas that are 
     at an early stage of development are also welcome."
     local_info: "GandALF 2026 will take place in Aalborg, Denmark, on September 15--17, 2026.
-    <br>
-    The conference will be hosted at [Comwell Hvid Hus Hotel, Aalborg](https://www.comwell.com/hoteller/comwell-hotel-aalborg) and 
-    it is organised by the [FICS](https://www.cs.aau.dk/research/research-groups/foundations-for-interacting-and-computing-systems-fics) 
-    research group at the [Department of Computer Science](https://www.cs.aau.dk)."
+    The conference will be hosted at [Comwell Hvid Hus Hotel, Aalborg](https://www.comwell.com/hoteller/comwell-hotel-aalborg)."
     topics_header: "The topics covered by the conference include, but are not limited to, 
     the following:"
     topics: # list of topics of interests
@@ -94,7 +91,7 @@ en: &DEFAULT_EN
     camera_ready: "September 7, 2026"
     
   commitee:
-    title: "Commitees"
+    title: "Committees"
     section: commitees
     text: "The full list of program committee members will be available soon. " #optional header text before the subsections
     chairs: # list of chairs
@@ -241,6 +238,61 @@ en: &DEFAULT_EN
           - url: https://orcid.org/0000-0002-1402-5298
             icon: fa-brands fa-orcid
 
+  social:
+    dinner:
+      title: "Musikkens Hus"
+      section: musikkenshus
+      text: "[Musikkens Hus](https://musikkenshus.dk/) is one of Aalborg’s most distinctive 
+      cultural landmarks, situated on the city’s waterfront overlooking the Limfjord. 
+      The idea for a major music and cultural centre dates back to 1986, when local 
+      citizens established Foreningen Musikhusets Venner to promote the project. 
+      After years of fundraising and planning, an international architectural competition 
+      was held, and in 2003 the project by the renowned Austrian architectural 
+      firm COOP HIMMELB(L)AU, led by architect Wolf D. Prix, was selected.
+      <br>
+      Construction began in 2010, and Musikkens Hus officially opened on 29 March 
+      2014, with an opening concert attended by Queen Margrethe II. 
+      The building was conceived not only as a concert venue but as a meeting place for 
+      music, education, research and cultural exchange. Its striking sculptural form
+      reflects Aalborg’s industrial heritage while opening towards the Limfjord.
+      The educational and administrative areas form a U-shaped structure around 
+      the central Concert Hall, symbolically embracing the heart of the building.
+      <br>
+      The architecture also places exceptional emphasis on acoustics and interaction: 
+      the Concert Hall is constructed according to a box-in-box principle to isolate 
+      it acoustically, while its distinctive walls feature approximately 160,000 
+      hand-applied acoustic elements. Today, Musikkens Hus is home to several musical 
+      and educational institutions and serves as an important cultural meeting point 
+      for Aalborg and the wider North Jutland region.
+      <br>
+      Therefore, Musikkens Hus provides a particularly fitting setting: a contemporary 
+      landmark where architecture, music, knowledge and international cultural exchange 
+      come together."
+    
+    trip:
+      title: "Lindholm Høje"
+      section: lindholmhoje
+      text: "Lindholm Høje, located just north of Aalborg overlooking the Limfjord, is 
+      one of Denmark’s most remarkable and best-preserved archaeological sites from the 
+      Iron Age and Viking Age. The burial site was used for around 600 years, 
+      from approximately 400 AD to 1000 AD, and contains almost 700 cremation graves, 
+      many marked by distinctive stone settings in circular, oval, triangular and 
+      ship-like shapes.
+      <br>
+      The site was preserved by several metres of drifting sand, which covered the area 
+      towards the end of the Viking Age and protected the graves from later agricultural 
+      activity. Although the site was rediscovered in the late 19th century, extensive 
+      archaeological excavations were not carried out until the 1950s, revealing not 
+      only the burial ground but also remains of a nearby Viking settlement.
+      <br><br>
+      Today, the [Viking Museum Lindholm Høje](https://nordjyskemuseer.dk/en/u/vikingemuseet-lindholm-hoje-en/) 
+      presents the archaeological finds and tells the story of the people who lived, 
+      worked and were buried in the area. The combination of the ancient burial landscape, 
+      the archaeological museum and the panoramic view across the Limfjord makes 
+      Lindholm Høje a unique setting for the GandALF 2026 social trip, offering 
+      participants an opportunity to experience an important part of Aalborg’s and 
+      Denmark’s cultural heritage."
+        
 ### End of conference info
 
   footer:

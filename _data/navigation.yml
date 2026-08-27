@@ -19,7 +19,7 @@ en: &DEFAULT_EN
       section: dates
     - title: "Call for Papers"
       section: cfp
-    #- title: "Commitees"
+    #- title: "Committees"
     #  section: commitees
     - title: "Register"
       url: registration

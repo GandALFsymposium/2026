@@ -1,0 +1,67 @@
+<!-- Social Trip -->
+
+<section class="page-section" id="{{ site.data.sitetext[site.locale].portfolio.section | default: "portfolio" }}">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12 text-center">
+        <h2 class="section-heading text-uppercase">{{ site.data.sitetext[site.locale].social.trip.title | default: "Social Trip" }}</h2>
+      </div>
+      <div class="col-lg-12 body text-muted">{{ site.data.sitetext[site.locale].social.trip.text | markdownify }}</div>
+    </div>
+    <div class="row">
+	{% for picture in site.social_trip %}
+      <div class="col-md-4 col-sm-6 portfolio-item">
+        <a class="portfolio-link" data-toggle="modal" href="#t{{ forloop.index }}">
+          <!-- <div class="portfolio-hover">
+          </div> -->
+          <div class="portfolio-hover">
+            <div class="portfolio-hover-content">
+              <i class="{{ site.data.style.portfolio-icon | default: "fas fa-plus fa-3x" }}"></i>
+            </div>
+          </div>
+          <img class="img-fluid" src="{{ picture.thumbnail }}" alt="">
+        </a>
+      </div>
+	{% endfor %}
+    </div>
+  </div>
+</section>
+
+<!-- Social Trip Modals -->
+{% for picture in site.social_trip %}
+<div
+  class="portfolio-modal modal fade"
+  id="t{{ forloop.index }}"
+  tabindex="-1"
+  role="dialog"
+  aria-hidden="true"
+>
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="close-modal" data-dismiss="modal">
+        <div class="lr">
+          <div class="rl"></div>
+        </div>
+      </div>
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 mx-auto">
+            <div class="modal-body">
+              <!-- Pictures Details Go Here -->
+              <h3 class="text-uppercase">{{ picture.title }}</h3>
+              <p class="item-intro text-muted">{{ picture.subtitle }}</p>
+              <img
+                class="img-fluid d-block mx-auto"
+                src="{{ picture.image }}"
+                alt="{{ picture.alt }}"
+              />
+              <p>Credits: {{ picture.credits }}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endfor %}
+<!-- End Social Trip Modals -->
