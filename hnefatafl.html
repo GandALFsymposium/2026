@@ -1,0 +1,754 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Hnefatafl — King's Table</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700;900&family=Spectral:ital,wght@0,400;0,600;1,400&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg: #14100d;
+    --panel: #1c1611;
+    --panel-edge: #2a2019;
+    --wood-a: #2c231a;
+    --wood-b: #3c2f22;
+    --wood-b-hi: #4a3a29;
+    --gold: #c9a24b;
+    --gold-bright: #e9cd82;
+    --iron: #9a4438;
+    --iron-dark: #5e2a24;
+    --bone: #e9dfc6;
+    --bone-dim: #b9ad8d;
+    --ink: #0b0906;
+    --rune: #8a7452;
+    --danger: #b3453a;
+    --ok: #7c9a5c;
+    --font-display: 'Cinzel', serif;
+    --font-body: 'Spectral', serif;
+    --font-mono: 'JetBrains Mono', monospace;
+  }
+
+  * { box-sizing: border-box; }
+
+  body{
+    margin:0;
+    min-height:100vh;
+    background:
+      radial-gradient(ellipse at 20% -10%, #241b13 0%, transparent 55%),
+      radial-gradient(ellipse at 100% 110%, #1a140f 0%, transparent 55%),
+      var(--bg);
+    color: var(--bone);
+    font-family: var(--font-body);
+    display:flex;
+    justify-content:center;
+    padding: 28px 16px 60px;
+  }
+
+  .wrap{
+    width: 100%;
+    max-width: 1080px;
+  }
+
+  header{
+    text-align:center;
+    margin-bottom: 22px;
+  }
+
+  .eyebrow{
+    font-family: var(--font-mono);
+    letter-spacing: 0.35em;
+    font-size: 11px;
+    color: var(--rune);
+    text-transform: uppercase;
+  }
+
+  h1{
+    font-family: var(--font-display);
+    font-weight: 900;
+    letter-spacing: 0.14em;
+    font-size: clamp(28px, 5vw, 44px);
+    margin: 6px 0 4px;
+    color: var(--gold-bright);
+    text-shadow: 0 2px 0 #000, 0 0 30px rgba(201,162,75,0.15);
+  }
+
+  .subtitle{
+    font-size: 14px;
+    color: var(--bone-dim);
+    font-style: italic;
+  }
+
+  .layout{
+    display:flex;
+    gap: 26px;
+    align-items:flex-start;
+    justify-content:center;
+    flex-wrap: wrap;
+  }
+
+  /* ---------- board ---------- */
+
+  .board-frame{
+    background: linear-gradient(160deg, #3a2c1e, #23190f 60%, #170f09);
+    border: 1px solid #4a3a26;
+    border-radius: 10px;
+    padding: 14px;
+    box-shadow: 0 20px 50px rgba(0,0,0,0.55), inset 0 0 0 1px rgba(201,162,75,0.08);
+  }
+
+  .board{
+    display:grid;
+    grid-template-columns: repeat(11, 1fr);
+    grid-template-rows: repeat(11, 1fr);
+    width: min(78vw, 560px);
+    height: min(78vw, 560px);
+    border: 2px solid var(--ink);
+    box-shadow: 0 0 0 1px #4a3a26;
+  }
+
+  .cell{
+    position: relative;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    background: var(--wood-a);
+    cursor: default;
+  }
+  .cell.alt{ background: var(--wood-b); }
+
+  .cell.throne, .cell.corner{
+    background: radial-gradient(circle at 50% 45%, #5a4630 0%, #3a2c1e 70%);
+  }
+  .cell.throne::before, .cell.corner::before{
+    content:'';
+    position:absolute;
+    inset: 18%;
+    border: 1px solid rgba(201,162,75,0.35);
+    border-radius: 3px;
+    transform: rotate(45deg);
+    opacity: 0.7;
+  }
+
+  .cell.legal-move{ cursor: pointer; }
+  .cell.legal-move::after{
+    content:'';
+    position:absolute;
+    width: 26%;
+    height: 26%;
+    border-radius: 50%;
+    background: rgba(201,162,75,0.55);
+    box-shadow: 0 0 8px rgba(201,162,75,0.5);
+  }
+  .cell.legal-move.occupied-hint::after{
+    width: 70%;
+    height: 70%;
+    border-radius: 6px;
+    background: transparent;
+    border: 2px solid rgba(179,69,58,0.75);
+  }
+
+  .cell.selected{
+    box-shadow: inset 0 0 0 3px var(--gold-bright);
+  }
+  .cell.last-from, .cell.last-to{
+    box-shadow: inset 0 0 0 2px rgba(201,162,75,0.4);
+  }
+
+  .cell.selectable{ cursor: pointer; }
+  .cell.selectable:hover{ filter: brightness(1.18); }
+
+  /* pieces */
+  .piece{
+    width: 78%;
+    height: 78%;
+    border-radius: 50%;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-family: var(--font-display);
+    font-size: clamp(13px, 2.4vw, 20px);
+    font-weight: 700;
+    user-select:none;
+    transition: transform 0.12s ease;
+  }
+  .piece.attacker{
+    background: radial-gradient(circle at 35% 30%, #b5564a, var(--iron) 55%, var(--iron-dark) 100%);
+    color: #2a120e;
+    box-shadow: 0 3px 5px rgba(0,0,0,0.5), inset 0 1px 1px rgba(255,255,255,0.15);
+    border: 1px solid #3d1c17;
+  }
+  .piece.defender{
+    background: radial-gradient(circle at 35% 30%, #f4ecd6, var(--bone) 55%, var(--bone-dim) 100%);
+    color: #3a3320;
+    box-shadow: 0 3px 5px rgba(0,0,0,0.5), inset 0 1px 1px rgba(255,255,255,0.5);
+    border: 1px solid #8a7d5a;
+  }
+  .piece.king{
+    background: radial-gradient(circle at 35% 30%, var(--gold-bright), var(--gold) 55%, #8a6a2a 100%);
+    color: #3a2405;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.6), inset 0 1px 1px rgba(255,255,255,0.5), 0 0 12px rgba(201,162,75,0.4);
+    border: 1px solid #a9862f;
+    font-size: clamp(16px, 2.8vw, 24px);
+  }
+
+  /* ---------- side panel ---------- */
+
+  .panel{
+    width: 300px;
+    display:flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .card{
+    background: var(--panel);
+    border: 1px solid var(--panel-edge);
+    border-radius: 8px;
+    padding: 16px 18px;
+  }
+
+  .card h2{
+    font-family: var(--font-display);
+    font-size: 12px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--rune);
+    margin: 0 0 10px;
+  }
+
+  .turn-indicator{
+    display:flex;
+    align-items:center;
+    gap: 12px;
+  }
+  .turn-dot{
+    width: 22px; height:22px; border-radius:50%;
+    flex-shrink:0;
+  }
+  .turn-dot.attacker{ background: radial-gradient(circle at 35% 30%, #b5564a, var(--iron-dark)); box-shadow:0 0 10px rgba(154,68,56,0.5);}
+  .turn-dot.defender{ background: radial-gradient(circle at 35% 30%, var(--gold-bright), var(--gold)); box-shadow:0 0 10px rgba(201,162,75,0.5);}
+
+  .turn-label{
+    font-family: var(--font-display);
+    font-size: 17px;
+    letter-spacing: 0.04em;
+  }
+  .turn-sub{
+    font-size: 12px;
+    color: var(--bone-dim);
+    font-family: var(--font-mono);
+  }
+
+  .status-msg{
+    margin-top:10px;
+    font-size: 13px;
+    color: var(--bone-dim);
+    min-height: 18px;
+    font-style: italic;
+  }
+  .status-msg.warn{ color: var(--danger); font-style: normal; }
+
+  .tally{
+    display:flex;
+    justify-content: space-between;
+    font-family: var(--font-mono);
+    font-size: 13px;
+  }
+  .tally div{ text-align:center; }
+  .tally .num{ font-size: 22px; color: var(--gold-bright); display:block; }
+
+  button{
+    font-family: var(--font-display);
+    letter-spacing: 0.08em;
+    font-size: 12px;
+    text-transform: uppercase;
+    background: linear-gradient(180deg, var(--wood-b-hi), var(--wood-a));
+    border: 1px solid var(--rune);
+    color: var(--bone);
+    padding: 10px 14px;
+    border-radius: 6px;
+    cursor:pointer;
+    width: 100%;
+  }
+  button:hover{ filter: brightness(1.15); }
+  button:active{ transform: translateY(1px); }
+
+  .rules{
+    font-size: 13px;
+    line-height: 1.6;
+    color: var(--bone-dim);
+  }
+  .rules b{ color: var(--bone); }
+  .rules ul{ margin: 6px 0 0 18px; padding:0; }
+  .rules li{ margin-bottom: 6px; }
+
+  .legend{
+    display:flex;
+    gap:14px;
+    font-size:12px;
+    color: var(--bone-dim);
+    margin-top: 10px;
+    flex-wrap: wrap;
+  }
+  .legend span{ display:inline-flex; align-items:center; gap:6px; }
+  .legend .sw{ width:12px; height:12px; border-radius:50%; display:inline-block; }
+
+  .overlay{
+    position: fixed;
+    inset: 0;
+    background: rgba(10,7,5,0.82);
+    display:none;
+    align-items:center;
+    justify-content:center;
+    z-index: 20;
+  }
+  .overlay.show{ display:flex; }
+  .overlay-card{
+    background: var(--panel);
+    border: 1px solid var(--gold);
+    border-radius: 10px;
+    padding: 34px 40px;
+    text-align:center;
+    max-width: 380px;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.7);
+  }
+  .overlay-card h3{
+    font-family: var(--font-display);
+    font-size: 26px;
+    color: var(--gold-bright);
+    margin: 0 0 8px;
+    letter-spacing: 0.06em;
+  }
+  .overlay-card p{
+    color: var(--bone-dim);
+    font-size: 14px;
+    margin-bottom: 20px;
+  }
+
+  @media (max-width: 760px){
+    .layout{ flex-direction: column; align-items:center; }
+    .panel{ width: min(78vw, 560px); }
+  }
+</style>
+</head>
+<body>
+
+<div class="wrap">
+  <header>
+    <div class="eyebrow">Fetlar Ruleset · 11 × 11</div>
+    <h1>Hnefatafl</h1>
+    <div class="subtitle">The King's Table — Attackers besiege, Defenders escort the king to freedom</div>
+  </header>
+
+  <div class="layout">
+    <div class="board-frame">
+      <div class="board" id="board"></div>
+    </div>
+
+    <div class="panel">
+      <div class="card">
+        <h2>Turn</h2>
+        <div class="turn-indicator">
+          <div class="turn-dot attacker" id="turnDot"></div>
+          <div>
+            <div class="turn-label" id="turnLabel">Attackers move</div>
+            <div class="turn-sub" id="turnSub">24 pieces on the board</div>
+          </div>
+        </div>
+        <div class="status-msg" id="statusMsg">Select a piece to see its moves.</div>
+        <div class="legend">
+          <span><i class="sw" style="background:linear-gradient(135deg,#b5564a,#5e2a24)"></i>Attacker</span>
+          <span><i class="sw" style="background:linear-gradient(135deg,#f4ecd6,#b9ad8d)"></i>Defender</span>
+          <span><i class="sw" style="background:linear-gradient(135deg,#e9cd82,#8a6a2a)"></i>King</span>
+        </div>
+      </div>
+
+      <div class="card">
+        <h2>Captured</h2>
+        <div class="tally">
+          <div><span class="num" id="capAtt">0</span>Attackers</div>
+          <div><span class="num" id="capDef">0</span>Defenders</div>
+        </div>
+      </div>
+
+      <div class="card">
+        <button id="restartBtn">⟲ New Game</button>
+      </div>
+
+      <div class="card rules">
+        <h2>How to Play</h2>
+        <ul>
+          <li><b>Move</b> like a rook: any distance, straight lines, no jumping.</li>
+          <li>Only the <b>king</b> may land on the throne (center) or the four corners.</li>
+          <li><b>Capture</b> an enemy piece by trapping it between two of yours (or one of yours + a hostile throne/corner) on opposite sides.</li>
+          <li>The <b>king</b> is captured when surrounded on all 4 sides by attackers — <b>attackers win</b>.</li>
+          <li>The <b>defenders win</b> when the king reaches any corner square.</li>
+          <li>Attackers move first.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="overlay" id="overlay">
+  <div class="overlay-card">
+    <h3 id="overlayTitle">Victory</h3>
+    <p id="overlayText"></p>
+    <button id="overlayBtn">Play Again</button>
+  </div>
+</div>
+
+<script>
+(function(){
+  const SIZE = 11;
+  const CENTER = 5;
+  const CORNERS = [[0,0],[0,SIZE-1],[SIZE-1,0],[SIZE-1,SIZE-1]];
+
+  let board, currentTurn, selected, legalMoves, captured, gameOver, lastMove;
+
+  const boardEl = document.getElementById('board');
+  const turnDot = document.getElementById('turnDot');
+  const turnLabel = document.getElementById('turnLabel');
+  const turnSub = document.getElementById('turnSub');
+  const statusMsg = document.getElementById('statusMsg');
+  const capAttEl = document.getElementById('capAtt');
+  const capDefEl = document.getElementById('capDef');
+  const overlay = document.getElementById('overlay');
+  const overlayTitle = document.getElementById('overlayTitle');
+  const overlayText = document.getElementById('overlayText');
+
+  function isCorner(r,c){ return CORNERS.some(([cr,cc]) => cr===r && cc===c); }
+  function isThrone(r,c){ return r===CENTER && c===CENTER; }
+  function isRestricted(r,c){ return isCorner(r,c) || isThrone(r,c); }
+  function inBounds(r,c){ return r>=0 && r<SIZE && c>=0 && c<SIZE; }
+
+  function makeEmptyBoard(){
+    const b = [];
+    for(let r=0;r<SIZE;r++){ b.push(new Array(SIZE).fill(null)); }
+    return b;
+  }
+
+  function setupBoard(){
+    const b = makeEmptyBoard();
+
+    // King
+    b[5][5] = { type:'king', side:'defender' };
+
+    // Defenders: the 8 cells surrounding the throne
+    const defOffsets = [[-1,-1],[-1,0],[-1,1],[0,-1],[0,1],[1,-1],[1,0],[1,1]];
+    defOffsets.forEach(([dr,dc]) => {
+      b[5+dr][5+dc] = { type:'defender', side:'defender' };
+    });
+
+    // Attackers: edge formations
+    const edgeOffsets = [3,4,5,6,7];
+    edgeOffsets.forEach(c => {
+      b[0][c] = { type:'attacker', side:'attacker' };
+      b[10][c] = { type:'attacker', side:'attacker' };
+    });
+    b[1][5] = { type:'attacker', side:'attacker' };
+    b[9][5] = { type:'attacker', side:'attacker' };
+
+    edgeOffsets.forEach(r => {
+      b[r][0] = { type:'attacker', side:'attacker' };
+      b[r][10] = { type:'attacker', side:'attacker' };
+    });
+    b[5][1] = { type:'attacker', side:'attacker' };
+    b[5][9] = { type:'attacker', side:'attacker' };
+
+    return b;
+  }
+
+  function resetGame(){
+    board = setupBoard();
+    currentTurn = 'attacker';
+    selected = null;
+    legalMoves = [];
+    captured = { attacker: 0, defender: 0 };
+    gameOver = false;
+    lastMove = null;
+    overlay.classList.remove('show');
+    render();
+    updateStatus('Select a piece to see its moves.');
+    updateTurnPanel();
+  }
+
+  function pieceGlyph(p){
+    if(p.type === 'king') return '♔';
+    if(p.type === 'attacker') return '●';
+    return '○';
+  }
+
+  function render(){
+    boardEl.innerHTML = '';
+    for(let r=0;r<SIZE;r++){
+      for(let c=0;c<SIZE;c++){
+        const cell = document.createElement('div');
+        cell.className = 'cell';
+        if((r+c)%2===1) cell.classList.add('alt');
+        if(isThrone(r,c)) cell.classList.add('throne');
+        if(isCorner(r,c)) cell.classList.add('corner');
+        cell.dataset.r = r;
+        cell.dataset.c = c;
+
+        if(lastMove){
+          if(lastMove.from[0]===r && lastMove.from[1]===c) cell.classList.add('last-from');
+          if(lastMove.to[0]===r && lastMove.to[1]===c) cell.classList.add('last-to');
+        }
+
+        const piece = board[r][c];
+        if(piece){
+          const pd = document.createElement('div');
+          pd.className = 'piece ' + piece.type;
+          pd.textContent = pieceGlyph(piece);
+          cell.appendChild(pd);
+          if(!gameOver && piece.side === currentTurn){
+            cell.classList.add('selectable');
+          }
+        }
+
+        if(selected && selected[0]===r && selected[1]===c){
+          cell.classList.add('selected');
+        }
+
+        if(legalMoves.some(([mr,mc]) => mr===r && mc===c)){
+          cell.classList.add('legal-move');
+        }
+
+        cell.addEventListener('click', onCellClick);
+        boardEl.appendChild(cell);
+      }
+    }
+  }
+
+  function onCellClick(e){
+    if(gameOver) return;
+    const r = parseInt(e.currentTarget.dataset.r, 10);
+    const c = parseInt(e.currentTarget.dataset.c, 10);
+    const piece = board[r][c];
+
+    if(selected){
+      const isLegal = legalMoves.some(([mr,mc]) => mr===r && mc===c);
+      if(isLegal){
+        executeMove(selected, [r,c]);
+        return;
+      }
+      if(piece && piece.side === currentTurn){
+        selectPiece(r,c);
+        return;
+      }
+      selected = null;
+      legalMoves = [];
+      render();
+      updateStatus('Select a piece to see its moves.');
+      return;
+    }
+
+    if(piece && piece.side === currentTurn){
+      selectPiece(r,c);
+    }
+  }
+
+  function selectPiece(r,c){
+    selected = [r,c];
+    legalMoves = getLegalMoves(r,c);
+    render();
+    if(legalMoves.length === 0){
+      updateStatus('That piece has no legal moves right now.');
+    } else {
+      const piece = board[r][c];
+      updateStatus(`Selected ${describePiece(piece)} at ${coord(r,c)}. Choose a highlighted square.`);
+    }
+  }
+
+  function describePiece(p){
+    if(p.type==='king') return 'the King';
+    if(p.type==='attacker') return 'an Attacker';
+    return 'a Defender';
+  }
+
+  function coord(r,c){
+    const letters = 'ABCDEFGHIJK';
+    return letters[c] + (SIZE - r);
+  }
+
+  function getLegalMoves(r,c){
+    const piece = board[r][c];
+    if(!piece) return [];
+    const moves = [];
+    const dirs = [[-1,0],[1,0],[0,-1],[0,1]];
+    dirs.forEach(([dr,dc]) => {
+      let nr = r+dr, nc = c+dc;
+      while(inBounds(nr,nc) && board[nr][nc] === null){
+        if(isRestricted(nr,nc) && piece.type !== 'king'){
+          // can pass through empty throne/corner, but not land there
+          nr += dr; nc += dc;
+          continue;
+        }
+        moves.push([nr,nc]);
+        nr += dr; nc += dc;
+      }
+    });
+    return moves;
+  }
+
+  function executeMove(from, to){
+    const [fr,fc] = from;
+    const [tr,tc] = to;
+    const piece = board[fr][fc];
+    board[tr][tc] = piece;
+    board[fr][fc] = null;
+    lastMove = { from:[fr,fc], to:[tr,tc] };
+
+    selected = null;
+    legalMoves = [];
+
+    // King escape check
+    if(piece.type === 'king' && isCorner(tr,tc)){
+      finishGame('defender', `The King has escaped to ${coord(tr,tc)}! The defenders win.`);
+      return;
+    }
+
+    const capturedList = checkCaptures(tr,tc, piece.side);
+
+    let kingCaptured = false;
+    if(piece.side === 'attacker'){
+      kingCaptured = checkKingCaptured();
+    }
+
+    render();
+    updateCaptureTally();
+
+    if(kingCaptured){
+      finishGame('attacker', 'The King is surrounded on all sides and falls. The attackers win.');
+      return;
+    }
+
+    currentTurn = currentTurn === 'attacker' ? 'defender' : 'attacker';
+    updateTurnPanel();
+
+    if(!hasAnyLegalMove(currentTurn)){
+      const winner = currentTurn === 'attacker' ? 'defender' : 'attacker';
+      finishGame(winner, `${currentTurn === 'attacker' ? 'Attackers' : 'Defenders'} have no legal moves. ${winner === 'attacker' ? 'Attackers' : 'Defenders'} win.`);
+      return;
+    }
+
+    if(capturedList.length > 0){
+      updateStatus(`Captured ${capturedList.length} piece${capturedList.length>1?'s':''}! ${currentTurn==='attacker'?'Attackers':'Defenders'} to move.`);
+    } else {
+      updateStatus(`${currentTurn==='attacker'?'Attackers':'Defenders'} to move.`);
+    }
+  }
+
+  function checkCaptures(r,c, movingSide){
+    const dirs = [[-1,0],[1,0],[0,-1],[0,1]];
+    const capturedPieces = [];
+    dirs.forEach(([dr,dc]) => {
+      const ar = r+dr, ac = c+dc;
+      if(!inBounds(ar,ac)) return;
+      const target = board[ar][ac];
+      if(!target || target.side === movingSide) return;
+      if(target.type === 'king') return; // king handled separately
+
+      const br = ar+dr, bc = ac+dc;
+      let hostileBeyond = false;
+      if(inBounds(br,bc)){
+        const beyond = board[br][bc];
+        if(beyond && beyond.side === movingSide){
+          hostileBeyond = true;
+        } else if(!beyond && isRestricted(br,bc)){
+          hostileBeyond = true;
+        }
+      }
+      if(hostileBeyond){
+        board[ar][ac] = null;
+        captured[target.side]++;
+        capturedPieces.push([ar,ac]);
+      }
+    });
+    return capturedPieces;
+  }
+
+  function checkKingCaptured(){
+    let kr=-1, kc=-1;
+    outer:
+    for(let r=0;r<SIZE;r++){
+      for(let c=0;c<SIZE;c++){
+        if(board[r][c] && board[r][c].type === 'king'){ kr=r; kc=c; break outer; }
+      }
+    }
+    if(kr===-1) return false;
+
+    const dirs = [[-1,0],[1,0],[0,-1],[0,1]];
+    let existing = 0, hostile = 0;
+    dirs.forEach(([dr,dc]) => {
+      const nr = kr+dr, nc = kc+dc;
+      if(!inBounds(nr,nc)) return;
+      existing++;
+      const cell = board[nr][nc];
+      if(cell && cell.side === 'attacker'){
+        hostile++;
+      } else if(!cell && isThrone(nr,nc)){
+        hostile++;
+      }
+    });
+    return existing === 4 && hostile === 4;
+  }
+
+  function hasAnyLegalMove(side){
+    for(let r=0;r<SIZE;r++){
+      for(let c=0;c<SIZE;c++){
+        const p = board[r][c];
+        if(p && p.side === side){
+          if(getLegalMoves(r,c).length > 0) return true;
+        }
+      }
+    }
+    return false;
+  }
+
+  function updateCaptureTally(){
+    capAttEl.textContent = captured.attacker;
+    capDefEl.textContent = captured.defender;
+  }
+
+  function updateStatus(msg, warn){
+    statusMsg.textContent = msg;
+    statusMsg.classList.toggle('warn', !!warn);
+  }
+
+  function updateTurnPanel(){
+    turnDot.className = 'turn-dot ' + currentTurn;
+    turnLabel.textContent = (currentTurn === 'attacker' ? 'Attackers move' : 'Defenders move');
+    let attCount = 0, defCount = 0;
+    for(let r=0;r<SIZE;r++) for(let c=0;c<SIZE;c++){
+      const p = board[r][c];
+      if(p){
+        if(p.side==='attacker') attCount++;
+        else defCount++;
+      }
+    }
+    turnSub.textContent = currentTurn === 'attacker'
+      ? `${attCount} attackers remaining`
+      : `${defCount} defenders remaining (incl. king)`;
+  }
+
+  function finishGame(winnerSide, message){
+    gameOver = true;
+    render();
+    overlayTitle.textContent = winnerSide === 'attacker' ? 'Attackers Triumph' : 'Defenders Triumph';
+    overlayText.textContent = message;
+    overlay.classList.add('show');
+    updateStatus(message, true);
+  }
+
+  document.getElementById('restartBtn').addEventListener('click', resetGame);
+  document.getElementById('overlayBtn').addEventListener('click', resetGame);
+
+  resetGame();
+})();
+</script>
+
+</body>
+</html>

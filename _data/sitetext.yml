@@ -292,6 +292,24 @@ en: &DEFAULT_EN
       Lindholm Høje a unique setting for the GandALF 2026 social trip, offering 
       participants an opportunity to experience an important part of Aalborg’s and 
       Denmark’s cultural heritage."
+      surprise:
+        title: "Hnefatafl"
+        button: "Play!"
+        text: "[Hnefatafl](https://en.wikipedia.org/wiki/Tafl_games#Hnefatafl) (King's Table), 
+        often called *Tafl* for short, is an ancient 
+        Scandinavian strategy board game that was widely played during the Viking Age. 
+        Archaeological finds (such as game boards and pieces) and mentions in the Norse sagas
+        are how we know about it.
+        <br>
+        It's an asymmetric two-player game. One player controls a king 
+        and a small group of defenders in the centre of the board, while the other player 
+        controls a larger force of attackers surrounding them. The attacker's goal is to 
+        capture the king; the defender's goal is to get the king to safety, usually to a 
+        corner or edge of the board.
+        <br><br>
+        Are you interested in playing it, or curious about the rules? Then give it 
+        a try by following the link below."
+        link: "hnefatafl"
         
 ### End of conference info
 

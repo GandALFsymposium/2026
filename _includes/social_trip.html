@@ -65,3 +65,21 @@
 </div>
 {% endfor %}
 <!-- End Social Trip Modals -->
+
+<!-- -->
+<section class="page-section" id="{{ site.data.sitetext[site.locale].portfolio.section | default: "portfolio" }}">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12 text-center">
+        <h2 class="section-heading text-uppercase">{{ site.data.sitetext[site.locale].social.trip.surprise.title | default: "Surprise" }}</h2>
+      </div>
+     <div class="col-lg-12 body text-muted">{{ site.data.sitetext[site.locale].social.trip.surprise.text | markdownify }}</div>
+     <div class="col-lg-12 text-center">
+        <a class="btn btn-primary btn-xl text-uppercase js-scroll-trigger" 
+          href="{{ site.data.sitetext[site.locale].social.trip.surprise.link }}" target="black">{{ site.data.sitetext[site.locale].social.trip.surprise.button }}</a> 
+     </div> 
+    </div>
+  </div>
+</section>
+
+
