@@ -37,7 +37,7 @@ title: Program
 | 13:30–14:30 | **Optimizing Proof-Search via Linearization for Gödel-Löb Logic with Tree-Hypersequents**<br>Tim Lyon and Omar Taher<br><br>**Capturing Bisimulation-Invariant Exponential-Space Complexity Classes**<br>Florian Bruse, David Kronenberger and Martin Lange |
 | 14:30–15:00 | Closing (with Coffee Break)                                                                                                                                                                                                                                                     |                                                                                                                                                                                                                                          |
 
-
+<span style="color:Tomato;">News!</span> _Accepted papers and abstracts of invited talks are available_ [here](https://cgi.cse.unsw.edu.au/~eptcs/content.cgi?GandALF2026).
 
 #### Social Program
 
