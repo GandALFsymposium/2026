@@ -23,6 +23,10 @@ Both registration options include:
 
 We encourage participants to take advantage of the **Early Registration** rate by registering before **20 August 2026**.
 
+<span style="color:Tomato;">Registrations are closed.</span>
+
+{% comment %}
+
 <div class="registration_container">
 <div class="container">
     <h2 id="registrationStatus" style="text-align: center; margin-top: 0; margin-bottom: 20px;"></h2>
@@ -105,3 +109,5 @@ We encourage participants to take advantage of the **Early Registration** rate b
     </form>
   </div>
   </div>
+ 
+ {% endcomment %}
