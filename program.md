@@ -44,7 +44,8 @@ title: Program
 
 GandALF 2026 will feature two social activities, offering participants the opportunity to 
 explore Aalborg and enjoy an evening together outside the technical programme.
-
+<br>
+Extra details on how the social activities are planned can be found [here](assets/img/pdf/GandALF_social_program.pdf).
 <br>
 
 <!-- Social Trip -->
